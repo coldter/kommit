@@ -1,0 +1,8 @@
+---
+inject: true
+to: <%= absRouteDirPath %>/route.ts
+// before: /(\})(?![\s\S]*\})/
+after: <%= setupApiFunctionName %>
+skip_if: <%= registerFunctionName%>(app);
+---
+    <%= registerFunctionName %>(app);

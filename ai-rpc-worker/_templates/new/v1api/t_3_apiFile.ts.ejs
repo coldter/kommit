@@ -1,0 +1,51 @@
+---
+to: <%= absApiFilePath %>
+unless_exists: true
+---
+import { isPublicAccess } from "@/middleware/guard";
+import { errorResponses, successWithDataSchema } from "@/pkg/common/common-responses";
+import { createRouteConfig } from "@/pkg/common/route-config";
+import type { App } from "@/pkg/hono/app";
+import { z } from "@hono/zod-openapi";
+
+const <%= apiOperationId %>RequestSchema = z.object({});
+
+const <%= apiOperationId %>200ResponseSchema = z.object({});
+
+const route = createRouteConfig({
+  tags: ["unknown"],
+  summary: "todo",
+  method: "post",
+  path: "/v1/<%= apiNameSpace %>.<%= apiOperationIdPath %>",
+  guard: isPublicAccess,
+  operationId: "<%= apiOperationIdPath %>",
+  request: {
+    body: {
+      required: true,
+      content: {
+        "application/json": {
+          schema: <%= apiOperationId %>RequestSchema,
+        },
+      },
+    },
+  },
+  responses: {
+    200: {
+      description: "",
+      content: {
+        "application/json": {
+          schema: successWithDataSchema(
+            <%= apiOperationId %>200ResponseSchema,
+          ),
+        },
+      },
+    },
+    ...errorResponses,
+  },
+});
+
+export const <%= registerFunctionName %> = (app: App) => {
+  app.openapi(route, async (c) => {
+    return c.json({ success: true, data: {} }, 200);
+  });
+};

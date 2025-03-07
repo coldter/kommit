@@ -1,0 +1,8 @@
+---
+to: <%= absRouteDirPath %>/route.ts
+unless_exists: true
+---
+import type { App } from "@/pkg/hono/app";
+
+export const <%= setupApiFunctionName %> = (app: App) => {
+};

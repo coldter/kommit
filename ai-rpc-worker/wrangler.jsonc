@@ -1,0 +1,23 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "kommit-ai-rpc",
+  "main": "src/main.ts",
+  "compatibility_date": "2025-03-05",
+  "compatibility_flags": ["nodejs_compat"],
+  "observability": {
+    "enabled": true
+  },
+  "placement": {
+    "mode": "smart"
+  },
+  "upload_source_maps": true,
+  "kv_namespaces": [
+    {
+      "binding": "RATE_LIMIT_CACHE",
+      "id": "7d2e04ec4e6e42c58e4d39a07037f554"
+    }
+  ],
+  "ai": {
+    "binding": "AI"
+  }
+}
