@@ -6,3 +6,6 @@
 *.d.ts linguist-detectable=false
 # Hide JavaScript files from GitHub's language statistics
 *.js linguist-detectable=false
+
+# Hide ejs files from GitHub's language statistics
+*.ejs linguist-detectable=false
