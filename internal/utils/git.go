@@ -110,7 +110,6 @@ func (r *GitRepo) GitDiff() (string, error) {
 	}
 
 	var sb strings.Builder
-
 	counter := 0
 
 	for path, fileStatus := range status {
@@ -178,6 +177,8 @@ func (r *GitRepo) GitDiff() (string, error) {
 		}
 		sb.WriteString("\n")
 		sb.WriteString("-----------------------------------------\n")
+
+		counter++
 	}
 
 	return sb.String(), nil
