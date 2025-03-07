@@ -1,0 +1,8 @@
+# Hide TypeScript files from GitHub's language statistics
+*.ts linguist-detectable=false
+*.tsx linguist-detectable=false
+
+# If you have declaration files you want to hide as well
+*.d.ts linguist-detectable=false
+# Hide JavaScript files from GitHub's language statistics
+*.js linguist-detectable=false
